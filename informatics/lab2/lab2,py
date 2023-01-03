@@ -1,0 +1,30 @@
+while True:
+    str_message = input()
+    if len(str_message) ==7 and str_message.count('1') + str_message.count('0')==7:
+        i4 = int(str_message[6])
+        i3 = int(str_message[5])
+        i2 = int(str_message[4])
+        r3 = int(str_message[3])
+        i1 = int(str_message[2])
+        r2 = int(str_message[1])
+        r1 = int(str_message[0])
+        s1 = (r1 + i1 + i2 + i4) % 2
+        s2 = (r2 + i1 + i3 + i4) % 2
+        s3 = (r3 + i3 + i2 + i4) % 2
+        s = s3 * 100 + s2 * 10 + s1
+        mistake_byte = s3 * 4 + s2 * 2 + s1
+        index = mistake_byte - 1
+        if mistake_byte == 0:
+            print("no mistakes")
+        else:
+            changed_byte = (int(str_message[index]) + 1) % 2
+            new_str = ''
+            for i in range(index):
+                new_str += str_message[i]
+            new_str += str(changed_byte)
+            for i in range(index+1, len(str_message)):
+                new_str += str_message[i]
+            print(new_str)
+            break
+    else:
+        print("try again")
