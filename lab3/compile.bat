@@ -1,0 +1,1 @@
+javac -d . src/*.java src/inventory/*.java src/entities/*.java src/environment/*.java
